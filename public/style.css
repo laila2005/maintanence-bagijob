@@ -41,6 +41,9 @@ body{
 .lead{margin:0 0 20px 0; color:var(--muted); line-height:1.45}
 
 .meta{display:flex; gap:20px; align-items:center; flex-wrap:wrap}
+.window{background:rgba(255,255,255,0.02); padding:10px 12px; border-radius:10px; color:var(--muted)}
+.window-label{font-size:12px; color:var(--muted); margin-bottom:4px}
+.window-time{font-size:13px; font-weight:600; color:#dbeafe}
 .eta{background:var(--glass); padding:12px 16px; border-radius:10px; min-width:180px}
 .eta strong{display:block; font-size:20px; letter-spacing:0.5px}
 .eta-label{font-size:12px; color:var(--muted); margin-top:6px}

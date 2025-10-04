@@ -22,11 +22,15 @@
                 <h1>Bagi Job is under maintenance</h1>
                 <p class="lead">We're upgrading our systems to serve you better. Thank you for your patience — we'll be back online shortly.</p>
 
-                <div class="meta">
+                        <div class="meta">
                     <div class="eta">
                         <strong id="countdown">--:--:--</strong>
                         <div class="eta-label">Estimated time remaining</div>
                     </div>
+                            <div class="window" aria-hidden="true">
+                                <div class="window-label">Scheduled maintenance</div>
+                                <div class="window-time">Oct 4, 2025 — 13:00 — 14:00 (Cairo, EET)</div>
+                            </div>
                                             <div class="contact">
                                                 <a href="mailto:info@bagijob.com" class="btn">Contact support</a>
                                             </div>
@@ -36,10 +40,12 @@
         </main>
 
         <script>
-            // Configuration: set the estimated downtime end (ISO string) or offset in minutes
-            (function(){
-                // By default set ETA to 2 hours from load; change this timestamp to your planned time.
-                var end = new Date(Date.now() + 2 * 60 * 60 * 1000);
+        // Configuration: set the estimated downtime end (ISO string) or offset in minutes
+        (function(){
+        // By default set ETA to 1 hour from load; change this timestamp to your planned time.
+    // Using a fixed Cairo (Egypt) time: Oct 4, 2025 14:00 (UTC+02:00).
+    // If you want a different date, tell me. This uses an ISO string with +02:00 offset so all browsers convert correctly.
+    var end = new Date('2025-10-04T14:00:00+02:00');
                 var countdownEl = document.getElementById('countdown');
                 var yearEl = document.getElementById('year');
                 yearEl.textContent = new Date().getFullYear();
@@ -59,7 +65,7 @@
                     }
                 }
 
-                update();
+            update();
                 var timer = setInterval(update, 1000);
 
                         // no homepage CTA needed — removed
