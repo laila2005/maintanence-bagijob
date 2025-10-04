@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Bagi Job — Maintenance</title>
+        <meta name="description" content="Bagi Job is temporarily down for maintenance. We'll be back shortly.">
+            <!-- Use a clean system stack or replace with your preferred webfont -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+            <!-- Favicon / tab icon -->
+            <link rel="icon" href="tab3.jpeg" type="image/jpeg">
+    </head>
+    <body>
+        <main class="page">
+            <section class="card" role="status" aria-live="polite">
+                    <div class="logo" aria-hidden="true">
+                        <!-- Brand logo image provided by user -->
+                        <img src="logo-C6iNSJ5X.png" alt="Bagi Job logo" class="brand-img">
+                    </div>
+
+                <h1>Bagi Job is under maintenance</h1>
+                <p class="lead">We're upgrading our systems to serve you better. Thank you for your patience — we'll be back online shortly.</p>
+
+                <div class="meta">
+                    <div class="eta">
+                        <strong id="countdown">--:--:--</strong>
+                        <div class="eta-label">Estimated time remaining</div>
+                    </div>
+                                            <div class="contact">
+                                                <a href="mailto:info@bagijob.com" class="btn">Contact support</a>
+                                            </div>
+                </div>
+            </section>
+            <footer class="footer">© <span id="year"></span> Bagi Job — All rights reserved.</footer>
+        </main>
+
+        <script>
+            // Configuration: set the estimated downtime end (ISO string) or offset in minutes
+            (function(){
+                // By default set ETA to 2 hours from load; change this timestamp to your planned time.
+                var end = new Date(Date.now() + 2 * 60 * 60 * 1000);
+                var countdownEl = document.getElementById('countdown');
+                var yearEl = document.getElementById('year');
+                yearEl.textContent = new Date().getFullYear();
+
+                function update(){
+                    var now = new Date();
+                    var diff = Math.max(0, end - now);
+                    var h = Math.floor(diff / (1000*60*60));
+                    var m = Math.floor(diff / (1000*60)) % 60;
+                    var s = Math.floor(diff / 1000) % 60;
+                    countdownEl.textContent = [h,m,s].map(function(v){ return String(v).padStart(2,'0'); }).join(':');
+                    if(diff === 0){
+                        // when countdown ends, show friendly message and enable "Try homepage" button
+                        countdownEl.textContent = '00:00:00';
+                        document.querySelector('.lead').textContent = 'We expect to be back now. You can try visiting the site or refresh the page shortly.';
+                        clearInterval(timer);
+                    }
+                }
+
+                update();
+                var timer = setInterval(update, 1000);
+
+                        // no homepage CTA needed — removed
+            })();
+        </script>
+    </body>
+</html>
