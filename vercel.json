@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "status": 503,
+      "headers": {
+        "cache-control": "no-cache, must-revalidate",
+        "retry-after": "3600"
+      }
+    }
+  ]
+}
